@@ -9,10 +9,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
-@Document
+@Document(collection = "users")
 @NoArgsConstructor
 @AllArgsConstructor
 public class user {
@@ -28,9 +29,11 @@ public class user {
 
        @Email
        @NotBlank
+       @Indexed (unique = true)
        private String email;
 
        @NotBlank
+       @Indexed (unique = true)
        private String loginId;
 
        @NotBlank
@@ -50,8 +53,7 @@ public class user {
        private String confirmPassword;
 
        @NotBlank(message = "Phone number is required")
-       @Size(min = 10, max = 15, message = "Phone number must be between 10 and 15 digits")
-       @Pattern(regexp="^\\+?[0-9]{10,15}$", message="Invalid phone number format")
+       @Pattern(regexp="^\\d{10}$", message="Phone number must be exactly 10 digits")
        private String contactNumber;
 
 }
