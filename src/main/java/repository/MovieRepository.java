@@ -1,9 +1,9 @@
 package repository;
 
-import models.movie;
+import models.Movie;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface movieRepository extends MongoRepository<movie, String> {
+public interface MovieRepository extends MongoRepository<Movie, String> {
 }

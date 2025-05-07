@@ -1,13 +1,13 @@
 package service;
 
 import dto.userRegistrationRequest;
-import models.user;
+import models.User;
 
 import java.util.Optional;
 
 public interface userService {
 
-    public user registerUser(userRegistrationRequest registrationRequest);
-    public Optional<user> findByLoginId(String loginId);
+    public User registerUser(userRegistrationRequest registrationRequest);
+    public Optional<User> findByLoginId(String loginId);
     public void resetPassword(String email , String password);
 }

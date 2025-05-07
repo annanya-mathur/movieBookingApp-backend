@@ -1,9 +1,9 @@
 package repository;
 
-import models.ticket;
+import models.Ticket;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ticketRepository extends MongoRepository<ticket,String> {
+public interface TicketRepository extends MongoRepository<Ticket,String> {
 }

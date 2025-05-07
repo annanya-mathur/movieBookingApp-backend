@@ -1,15 +1,15 @@
 package repository;
 
-import models.user;
+import models.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
 @Repository
-public interface userRepository extends MongoRepository<user,String> {
+public interface UserRepository extends MongoRepository<User,String> {
 
-    Optional<user> findByLoginId(String loginId);
+    Optional<User> findByLoginId(String loginId);
     boolean existsByLoginId(String loginId);
     boolean existByEmail(String email);
 }
