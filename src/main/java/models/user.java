@@ -1,9 +1,4 @@
 package models;
-
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,32 +14,16 @@ public class user {
 
        @Id
        private String userId;
-
-       @NotBlank
        private String firstName;
-
-       @NotBlank
        private String lastName;
 
-       @Email
-       @NotBlank
        @Indexed (unique = true)
        private String email;
+       private String role;
 
-       @NotBlank
        @Indexed (unique = true)
        private String loginId;
-
-       @NotBlank
-       @Size(min = 8, message = "Password must be at least 8 characters long")
-       @Pattern(
-               regexp = "^(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&+=!]).*$",
-               message = "Password must contain at least one uppercase letter, one number, and one special character"
-       )
        private String password;
-
-       @NotBlank(message = "Phone number is required")
-       @Pattern(regexp="^\\d{10}$", message="Phone number must be exactly 10 digits")
        private String contactNumber;
 
 }
